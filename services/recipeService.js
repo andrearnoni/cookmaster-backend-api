@@ -13,11 +13,11 @@ const getAllRecipes = async () => {
 };
 
 const getRecipeById = async (id) => {
-  const product = await RecipesModel.getRecipeById(id);
+  const recipe = await RecipesModel.getRecipeById(id);
 
-  if (!product) return null;
+  if (!recipe) return null;
 
-  return product;
+  return recipe;
 };
 
 const createRecipe = async ({ name, ingredients, preparation, userId }) => {
