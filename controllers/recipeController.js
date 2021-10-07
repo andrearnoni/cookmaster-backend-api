@@ -19,7 +19,7 @@ const getRecipeById = async (req, res) => {
     if (recipe === null) return res.status(404).json(messages.RECIPE_NOT_FOUND);
 
     return res.status(200).json(recipe);
-  } catch (error) {
+  } catch (err) {
     return res.status(404).json(messages.RECIPE_NOT_FOUND);
   }
 };
@@ -61,7 +61,7 @@ const updateRecipe = async (req, res) => {
       preparation,
       userId: getId,
     });
-  } catch (error) {
+  } catch (err) {
     return res.status(500).json(messages.ERROR);
   }
 };
@@ -75,7 +75,7 @@ const updateRecipeImage = async (req, res) => {
     const response = await service.getRecipeById(id);
 
     return res.status(200).json(response);
-  } catch (error) {
+  } catch (err) {
     return res.status(500).json(messages.ERROR);
   }
 };
@@ -88,7 +88,7 @@ const excludeRecipe = async (req, res) => {
     if (exclude === null) return res.status(404).json(messages.RECIPE_NOT_FOUND);
 
     return res.status(204).send();
-  } catch (error) {
+  } catch (err) {
     return res.status(500).json(messages.ERROR);
   }
 };
